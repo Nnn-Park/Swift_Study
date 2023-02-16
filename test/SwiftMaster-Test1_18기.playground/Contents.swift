@@ -35,7 +35,8 @@ import UIKit
  ===================================================================**/
 
 
-//
+// 값을 반환하는 식 또는 코드
+// 변수에 값을 할당하는 표현과 어떤 의미에서 평가하여 값으로 해석되는 표현식이 있다.
 
 
 
@@ -57,24 +58,15 @@ print(result)
 
 
 
-
-
-
-
-
-
-
-
-
-
 /**==================================================================
  [4번 문제]
   -  튜플이 뭔가요? 간단한 개념을 1-2줄로 서술 하고, 간단한 코드 예시를 하나 만들어 보세요.
  ===================================================================**/
 
-//
+// 다양한 값(데이터)들의 묶음
 
-
+var appleHistory: (founder1: String, founder2: String, year: Int) = ("Jobs", "Wozniak", 1977)
+print("Apple은 \(appleHistory.founder1), \(appleHistory.founder2)에 의해 \(appleHistory.year)년 법인을 상장 하게 된다.")
 
 
 
@@ -149,8 +141,11 @@ func solution(_ num1: Int, _ num2: Int) -> String {
   - 함수의 파라미터에서 사용하는 inout키워드에 대해서, 간단하게 설명해 보세요.
  ===================================================================**/
 
-//
 
+
+// Swift에서 함수의 파라미터는 상수이므로 함수 내부에서 파라미터의 값을 변경할 수 없다.
+// 만약 함수에서 파라미터의 값을 변경하고, 변경된 값이 함수 호출이 종료된 후에도 지속되길 원한다면 inout 파라미터를 사용하면 된다.
+// 메모리 접근에 주의!
 
 
 
@@ -163,19 +158,20 @@ func solution(_ num1: Int, _ num2: Int) -> String {
  ===================================================================**/
 
 // 1.break문
-//
+// 해당 case에서 실행하는 문장이 없는 경우에 주로 사용, 전체 제어문의 실행을 바로 중지 시킨다.
 
 
 // 2.fallthrough문
-//
+// 매칭된 값과 상관없이 무조건 다음 문장도 실행한다.
 
 
 // 3.continue문
-//
+// 현재 loop를 중지하고 다음 loop를 수행한다.
 
 
 // 4.return문
-//
+// 리턴타입이 있는 경우 해당 타입을 리턴하면서 함수를 벗아난다.(스택의 메모리에서 내려감)
+// 리턴타입이 없는 경우 함수의 실행을 중지하고 벗어나게 된다.
 
 
 
@@ -185,7 +181,7 @@ func solution(_ num1: Int, _ num2: Int) -> String {
   - nil이 뭘까요? 아는대로 설명해 보세요!
  ===================================================================**/
 
-//
+// c언어에서의 NULL은 포인터가 가리키는 객체가 존재하지 않는다는 것과는 달리 Swift에서 nil은 포인터가 아니라 특정 타입에 대한 값이 없음을 보여준다.
 
 
 
@@ -196,7 +192,8 @@ func solution(_ num1: Int, _ num2: Int) -> String {
   - Optional 타입에는 .none이 있는데, 이것과 nil의 공통점 또는 차이점은?
  ===================================================================**/
 
-//
+// Optional 타입은 Enum으로 만들어져있고, .none 케이스는 값이 nil일 때와 같다.
+// 그냥 둘다 완전히 동일하다.
 
 
 
@@ -207,19 +204,19 @@ func solution(_ num1: Int, _ num2: Int) -> String {
  ===================================================================**/
 
 // 1번 방법
-//
+// if문 Unwrapping
 
 
 // 2번 방법
-//
+// switch문 Unwrapping
 
 
 // 3번 방법
-//
+// 강제 Unwrapping
 
 
 // 4번 방법
-//
+// nil coalescing
 
 
 
@@ -229,7 +226,7 @@ func solution(_ num1: Int, _ num2: Int) -> String {
   - 열거형(Enum)은 어떤 경우에 사용하는 타입인가요? 아는대로 간단하게 서술해 보세요.
  ===================================================================**/
 
-//
+// 공통된 주제에 대해 이미 정해놓은 입력 값만 선택해서 받고 싶을 때 사용
 
 
 
@@ -255,10 +252,13 @@ func solution(_ num1: Int, _ num2: Int) -> String {
 // 아래의 enum타입 완성
 
 enum SiteLogin {
-    
-    
-    
+    case google(String, String)
+    case facebook(String, String)
+    case naver(String, String)
 }
+var login1 = SiteLogin.google("google@gmail.com", "0000")
+var login2 = SiteLogin.facebook("facebook@facemail.com", "1234")
+var login3 = SiteLogin.naver("naver@naver.com", "4321")
 
 
 //var login1 = SiteLogin.google("google@gmail.com", "0000")
