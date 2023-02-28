@@ -115,3 +115,16 @@ class Person {
 }
 
 //var man = Person(name: String, age: Int)
+
+
+// 클래스 내부에서 함수 실행문은 사용 불가!
+class Bird {
+    func fly() {
+        print("날다.")
+    }
+    //fly()
+}
+
+var a = Bird()
+
+a.fly()
