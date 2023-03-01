@@ -56,8 +56,8 @@ var number = Int.random(in: 50...100)
 
 
 // 아래 주석을 제거하시면 됩니다.
-// var isSuccess = "이곳에 "삼항 연산자"를 이용한 코드를 작성"
-// print(isSuccess)
+var isSuccess = number >= 70 ? "성공" : "실패"
+print(isSuccess)
 
 
 
@@ -72,8 +72,9 @@ var number = Int.random(in: 50...100)
 for num in 1...20 {
     
     // 여기에 코드를 작성
-    // print("2의 배수: \(num)")
-    
+    if num % 2 == 0 {
+        print("2의 배수: \(num)")
+    }
 }
 
 
@@ -193,14 +194,13 @@ var dic = ["A": "Apple", "B": "Banana", "C": "City"]
 
 // 소수를 판별하는 함수를 완성하세요.
 func primeNumber(num: Int) {
-
+    for i in 2...(num - 1) {
+        num % i == 0 ? print("소수입니다.") : print("소수입니다.")
+    }
     // 아래 프린트 실행문을 포함하여 내부 코드 완성하시면 돼요.
-    print("소수가 아닙니다.")
-    print("소수입니다.")
-    
 }
 
-
+// 불리언 형으로 안하면 반복문 때문에 여러번 출력됨...
 
 primeNumber(num: 7)  // 소수입니다.
 primeNumber(num: 4)  // 소수가 아닙니다.
