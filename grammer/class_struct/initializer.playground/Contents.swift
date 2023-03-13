@@ -1,65 +1,131 @@
 import UIKit
 
-class Dog {
-    var name: String
-    var weight: Int
+
+class Color {
+    //let red, green, blue: Double // 동일한 타입일 때, 한줄에 작성가능
+    let red: Double
+    let green: Double
+    let blue: Double
     
-    init(name: String, weight: Int) {
-        self.name = name
-        self.weight = weight
+    
+    // 생성자도 Overloading을 지원 (파라미터의 수, 아규먼트 레이블, 잘형으로 구분)
+    
+    init() {    // 기본 생성자. 저장 속성의 기본값을 설정하면 자동 구현이 제공됨
+        red = 0.0
+        green = 0.0
+        blue = 0.0
     }
     
-    func sit() {
-        print("\(self.name) 앉았습니다.")
+    init(white: Double) {
+        red = white
+        green = white
+        blue = white
     }
     
-    func layDown() {
-        print("\(self.name) 누웠습니다.")
+    init(red: Double, green: Double, blue: Double) {
+        self.red = red
+        self.green = green
+        self.blue = blue
+    }
+}
+
+// var c = Color.init()
+
+
+
+
+var color = Color() // 기본 생성자 호
+
+//color = Color(white: <#T##Double#>)
+//color = Color(red: <#T##Double#>, green: <#T##Double#>, blue: <#T##Double#>)
+//
+//color = Color(red: <#T##Double#>, green: <#T##Double#>, blue: <#T##Double#>)
+//color = Color.init(red: <#T##Double#>, green: <#T##Double#>, blue: <#T##Double#>)
+
+
+        // Memberwise Initializer - 구조체의 특별한 생성자
+
+struct Color1 {
+    var red: Double
+    var green: Double
+    var blue: Double
+}
+
+
+                // 구조체 생성자
+
+struct Color2 {
+    var red, green, blue: Double
+    
+    init() {
+        self.init(red: 0.0, green: 0.0, blue: 0.0)
+    }
+    
+    init(white: Double) {
+        self.init(red: white, green: white, blue: white)
+    }
+    
+    init(red: Double, green: Double, blue: Double) {
+        self.red = red
+        self.green = green
+        self.blue = blue
     }
 }
 
 
+// 클래스 편의 생성자
 
-// 인스턴스내에서 동일한 변수명, 상수명을 사용할 때
-// 가르키는 것을 명확하게 하기위해 self 키워드를 사용
-
-
-//               self키워드는 클래스/구조체 내에서 해당 인스턴스(자기자신)를 가르킴
-
-
-var mydog = Dog(name: "dodam", weight: 10)
-
-mydog.name
-mydog.layDown()
-
-
-var a: String?
-
-print(a)
-
-
-class Dog2 {
-    var name: String
-    var weight: Int
+class Color3 {
+    let red, green, blue: Double
     
-    init(weight: Int) {
-        self.name = "dodam"
-        self.weight = weight
+    convenience init() {
+        self.init(red: 0.0, green: 0.0, blue: 0.0)
     }
     
-    func sit() {
-        print("\(name) 앉았습니다.")
+    convenience init(white: Double) {
+        self.init(red: white, green: white, blue: white)
     }
     
-    func layDown() {
-        print("\(name) 누웠습니다.")
+    init(red: Double, green: Double, blue: Double) {
+        self.red = red
+        self.green = green
+        self.blue = blue
     }
 }
 
-var mydog2 = Dog2(weight: 10)
+class Aclass {
+    
+    var x: Int
+    var y: Int
+    
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+    
+    convenience init() {
+        self.init(x: 0, y: 0)
+    }
+}
 
-print(mydog2.name)
-
-//if let name = mydog2.name {
-//    print(name)
-//}
+class Bclass: Aclass {
+    
+    var z: Int
+    
+    init(x: Int, y: Int, z: Int) {
+        self.z = z
+        super.init(x: x, y: y)
+    }
+    
+    convenience init(z: Int) {
+        self.init(x: 0, y: 0, z: z)
+    }
+    
+    convenience init() {
+        self.init(z: 0)
+    }
+    
+    func doSomething() {
+        print("Do something")
+    }
+}
