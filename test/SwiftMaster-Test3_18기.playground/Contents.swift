@@ -36,7 +36,9 @@ import UIKit
 
 // 함수 정의 (구현)
 
-
+func isEvenNumber(num input: Int) -> Bool {
+    return input % 2 == 0 ? true : false
+}
 
 
 
@@ -46,8 +48,8 @@ import UIKit
 
 // 함수 실행 (아래 주석 제거하고 실행해보기)
 
-//print("1번문제 결과 (1):", isEvenNumber(num: 3))
-//print("1번문제 결과 (2):", isEvenNumber(num: 4))
+print("1번문제 결과 (1):", isEvenNumber(num: 3))
+print("1번문제 결과 (2):", isEvenNumber(num: 4))
 
 
 
@@ -96,7 +98,9 @@ var personName = Person().name
 
 // 옵셔널 바인딩 코드 작성
 
-
+if let output = Person.name {
+    print("output")
+}
 
 
 

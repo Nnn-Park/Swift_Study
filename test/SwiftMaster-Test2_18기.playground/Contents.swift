@@ -35,6 +35,7 @@ var num = Int.random(in: 1...100)
 var array = ["Hello", "Jobs", "Swift", "Cook"]
 
 
+
 // 아래 주석을 제거하시면 됩니다.
 //var result = array[num 변수를 이용, 이곳에 코드를 어떻게 짜야할지]
 //print(result)
@@ -98,13 +99,21 @@ var numArray = [4, 0, 1, 7, 9, 3]
 
 
 // 대략적인 힌트
-//func findMaxNumber(array:) -> Int
-
+func findMaxNumber(array: [Int]) -> Int? {
+    guard var maxnum = array.first else { return nil }
+    
+    for i in 0...(numArray.count - 1) {
+        if maxnum < numArray[i] {
+            maxnum = numArray[i]
+        }
+    }
+    return maxnum
+}
 
 
 
 // 함수의 실행
-//findMaxNumber(array: numArray)
+findMaxNumber(array: numArray)
 
 
 
@@ -149,7 +158,9 @@ var puppy = ["p", "u", "p", "p", "y"]
 
 // 여기에 코드 작성
 
-
+for i in 0...(puppy.count - 1) {
+    puppy[3] =
+}
 
 
 // 배열 확인 및 출력
